@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,13 +26,13 @@ public class Lamina {
   private String imagen;
 
   @Column(name = "cantidad_repetidas")
-  private int cantidadRepetidas;
+  private int cantidadRepetidas = 0;
 
-  private boolean faltante;
+  private boolean faltante = true;
 
-  @JsonBackReference // Evita recursión infinita
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "album_id", nullable = false)
+  @JsonBackReference
   private Album album;
 
   public Long getId() {
