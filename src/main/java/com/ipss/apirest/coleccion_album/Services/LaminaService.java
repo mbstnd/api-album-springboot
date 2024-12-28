@@ -30,4 +30,12 @@ public class LaminaService {
     return laminaRepository.findByFaltante(faltante);
   }
 
+  public List<Lamina> findByWithRepetidas() {
+    return laminaRepository.findByCantidadRepetidasGreaterThan(0);
+  }
+
+  public List<Lamina> saveAll(List<Lamina> laminas) {
+    return laminaRepository.saveAll(laminas);
+  }
+
 }
