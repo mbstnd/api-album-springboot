@@ -19,6 +19,7 @@ import com.ipss.apirest.coleccion_album.dto.LaminaDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -99,6 +100,30 @@ public class LaminaController {
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(new LaminaResponse(201, "Láminas creadas exitosamente", savedLaminas));
+  }
+
+  @PutMapping("/update/{id}")
+  public ResponseEntity<LaminaResponse> updateLamina(@PathVariable Long id, @RequestBody Lamina lamina) {
+    try {
+      // Verificar si existe la lámina
+      Lamina existingLamina = laminaService.findById(id);
+      if (existingLamina == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new LaminaResponse(404, "Lámina no encontrada", Collections.emptyList()));
+      }
+
+      // Actualizar datos
+      lamina.setId(id);
+      lamina.setAlbum(existingLamina.getAlbum());
+
+      // Guardar cambios
+      Lamina updatedLamina = laminaService.save(lamina);
+      return ResponseEntity.ok(new LaminaResponse(200, "Lámina actualizada exitosamente", updatedLamina));
+
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .body(new LaminaResponse(500, "Error al actualizar la lámina", Collections.emptyList()));
+    }
   }
 
 }
