@@ -11,4 +11,6 @@ public interface LaminaRepository extends JpaRepository<Lamina, Long> {
 
   List<Lamina> findByFaltante(boolean faltante);
 
+  List<Lamina> findByCantidadRepetidasGreaterThan(int cantidad);
+
 }
