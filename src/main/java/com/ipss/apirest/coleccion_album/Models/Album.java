@@ -1,6 +1,7 @@
 package com.ipss.apirest.coleccion_album.Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -35,7 +36,7 @@ public class Album {
 
   @JsonManagedReference // Evita recursión infinita
   @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Lamina> laminas;
+  private List<Lamina> laminas = new ArrayList<>();
 
   public Long getId() {
     return id;
