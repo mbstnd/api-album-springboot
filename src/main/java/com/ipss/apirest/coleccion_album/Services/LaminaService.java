@@ -52,4 +52,8 @@ public class LaminaService {
     return laminaRepository.saveAll(laminas);
   }
 
+  public void deleteById(Long id) {
+    laminaRepository.deleteById(id);
+  }
+
 }
