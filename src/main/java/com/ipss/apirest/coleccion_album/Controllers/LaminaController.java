@@ -60,9 +60,17 @@ public class LaminaController {
 
   @PostMapping("/create")
   public ResponseEntity<LaminaResponse> createLamina(@RequestBody Lamina lamina) {
-    Lamina savedLamina = laminaService.save(lamina);
-    return ResponseEntity.status(HttpStatus.CREATED)
-        .body(new LaminaResponse(201, "Lámina creada exitosamente", savedLamina));
+    try {
+      Lamina savedLamina = laminaService.save(lamina);
+      return ResponseEntity.status(HttpStatus.CREATED)
+          .body(new LaminaResponse(201, "Lámina creada exitosamente", savedLamina));
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body(new LaminaResponse(400, e.getMessage(), Collections.emptyList()));
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .body(new LaminaResponse(500, "Error al crear la lámina", Collections.emptyList()));
+    }
   }
 
   @GetMapping("/faltantes")
