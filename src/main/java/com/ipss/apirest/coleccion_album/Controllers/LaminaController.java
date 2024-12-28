@@ -16,6 +16,7 @@ import com.ipss.apirest.coleccion_album.Services.AlbumService;
 import com.ipss.apirest.coleccion_album.Services.LaminaService;
 import com.ipss.apirest.coleccion_album.dto.LaminaDTO;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -123,6 +124,26 @@ public class LaminaController {
     } catch (Exception e) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
           .body(new LaminaResponse(500, "Error al actualizar la lámina", Collections.emptyList()));
+    }
+  }
+
+  @DeleteMapping("/delete/{id}")
+  public ResponseEntity<LaminaResponse> deleteLamina(@PathVariable Long id) {
+    try {
+      // Verificar si existe la lámina
+      Lamina laminaToDelete = laminaService.findById(id);
+      if (laminaToDelete == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new LaminaResponse(404, "Lámina no encontrada", Collections.emptyList()));
+      }
+
+      // Eliminar lámina
+      laminaService.deleteById(id);
+      return ResponseEntity.ok(new LaminaResponse(200, "Lámina eliminada exitosamente", laminaToDelete));
+
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .body(new LaminaResponse(500, "Error al eliminar la lámina", Collections.emptyList()));
     }
   }
 
