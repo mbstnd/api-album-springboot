@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ipss.apirest.coleccion_album.Models.Album;
 import com.ipss.apirest.coleccion_album.Models.Lamina;
@@ -46,6 +47,7 @@ public class LaminaService {
     return laminaRepository.findByCantidadRepetidasGreaterThan(0);
   }
 
+  @Transactional
   public List<Lamina> saveAll(List<Lamina> laminas) {
     return laminaRepository.saveAll(laminas);
   }
