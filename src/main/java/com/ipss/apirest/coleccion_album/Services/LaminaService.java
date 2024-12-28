@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ipss.apirest.coleccion_album.Models.Album;
 import com.ipss.apirest.coleccion_album.Models.Lamina;
 import com.ipss.apirest.coleccion_album.Repositories.LaminaRepository;
 
@@ -14,11 +15,22 @@ public class LaminaService {
   @Autowired
   private LaminaRepository laminaRepository;
 
+  @Autowired
+  private AlbumService albumService;
+
   public List<Lamina> findAll() {
     return laminaRepository.findAll();
   }
 
   public Lamina save(Lamina lamina) {
+    // Verificar si existe el álbum
+    if (lamina.getAlbum() != null && lamina.getAlbum().getId() != null) {
+      Album album = albumService.findById(lamina.getAlbum().getId());
+      if (album == null) {
+        throw new RuntimeException("El álbum con ID " + lamina.getAlbum().getId() + " no existe");
+      }
+      lamina.setAlbum(album);
+    }
     return laminaRepository.save(lamina);
   }
 
