@@ -114,7 +114,7 @@ Request:
 {
     "nombre": "Goku Ultra Instinto",
     "imagen": "goku-ui.jpg",
-    "cantidadRepetidas": 0,
+    "cantidadRepetidas": 2,
     "faltante": false,
     "album": {
         "id": 1
@@ -129,7 +129,7 @@ Response:
         "id": 1,
         "nombre": "Goku Ultra Instinto",
         "imagen": "goku-ui.jpg",
-        "cantidadRepetidas": 0,
+        "cantidadRepetidas": 2,
         "faltante": false,
         "albumId": 1,
         "albumNombre": "Dragon Ball Super Collection"
