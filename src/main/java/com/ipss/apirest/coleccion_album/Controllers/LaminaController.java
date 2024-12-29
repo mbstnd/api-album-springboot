@@ -9,10 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ipss.apirest.coleccion_album.Models.Album;
 import com.ipss.apirest.coleccion_album.Models.Lamina;
 import com.ipss.apirest.coleccion_album.Responses.LaminaResponse;
-import com.ipss.apirest.coleccion_album.Services.AlbumService;
 import com.ipss.apirest.coleccion_album.Services.LaminaService;
 import com.ipss.apirest.coleccion_album.dto.LaminaDTO;
 
@@ -29,9 +27,6 @@ public class LaminaController {
 
   @Autowired
   private LaminaService laminaService;
-
-  @Autowired
-  private AlbumService albumService;
 
   @GetMapping("/getAll")
   public ResponseEntity<LaminaResponse> getAllLaminas() {
@@ -85,22 +80,6 @@ public class LaminaController {
   public ResponseEntity<LaminaResponse> getLaminasRepetidas() {
     List<Lamina> repetidas = laminaService.findByWithRepetidas();
     return ResponseEntity.ok(new LaminaResponse(200, "Láminas repetidas encontradas", repetidas));
-  }
-
-  @PostMapping("/bulk/{albumId}")
-  public ResponseEntity<LaminaResponse> createBulkLaminas(
-      @PathVariable Long albumId,
-      @RequestBody List<Lamina> laminas) {
-    Album album = albumService.findById(albumId);
-    if (album == null) {
-      return ResponseEntity.notFound().build();
-    }
-
-    laminas.forEach(lamina -> lamina.setAlbum(album));
-    List<Lamina> savedLaminas = laminaService.saveAll(laminas);
-
-    return ResponseEntity.status(HttpStatus.CREATED)
-        .body(new LaminaResponse(201, "Láminas creadas exitosamente", savedLaminas));
   }
 
   @PutMapping("/update/{id}")
