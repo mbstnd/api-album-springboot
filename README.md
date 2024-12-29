@@ -27,7 +27,7 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 - [**Spring Boot Starter Test**](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing) - Suite de pruebas
 - [**JUnit 5**](https://junit.org/junit5/) - Framework de testing
 
-## Configuración e Instalación
+## 🚀 Configuración e Instalación
 
 ### Prerrequisitos
 - Java 21
