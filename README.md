@@ -141,3 +141,6 @@ Response:
     }
 }
 ```
+## 🔑 License
+
+- [MIT](https://github.com/mbstnd/api-album-springboot/blob/main/LICENSE)
