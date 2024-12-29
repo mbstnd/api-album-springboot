@@ -37,8 +37,8 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 ### Base de Datos
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/coleccion
-spring.datasource.username=tu_usuario
-spring.datasource.password=tu_password
+spring.datasource.username=mbstn
+spring.datasource.password=123456
 ```
 
 ## Clonar repositorio
