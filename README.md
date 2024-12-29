@@ -43,7 +43,7 @@ spring.datasource.password=tu_password
 
 # Clonar repositorio
 ```
-git clone https://github.com/tu-usuario/coleccion-album.git
+git clone https://github.com/mbstnd/api-album-springboot.git
 cd coleccion-album
 ```
 
