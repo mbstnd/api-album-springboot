@@ -1,11 +1,11 @@
-# 🎴 Sistema de Gestión de Álbumes y Láminas - API REST
+## 🎴 Sistema de Gestión de Álbumes y Láminas - API REST
 
 ### **Integrantes del equipo (Grupo 12, Sección 70):**
 - **Mario Quevedo**  
 - **Patricio Ibargaray**  
 - **Franco Vasquez**
 
-## Descripción
+## 📝 Descripción
 Sistema de gestión para coleccionistas de láminas de álbumes utilizando Spring Boot. Permite administrar colecciones, seguimiento de láminas faltantes y repetidas.
 
 ## 🛠️ Stack 
@@ -41,25 +41,25 @@ spring.datasource.username=tu_usuario
 spring.datasource.password=tu_password
 ```
 
-# Clonar repositorio
+## Clonar repositorio
 ```
 git clone https://github.com/mbstnd/api-album-springboot.git
 cd coleccion-album
 ```
 
-# Compilar proyecto
+## Compilar proyecto
 ```
 mvn clean install
 ```
 
-# Ejecutar aplicación
+## Ejecutar aplicación
 ```
 mvn spring-boot:run
 ```
 
 ## 📚 Endpoints
 
-### 📗 Álbumes
+## 📗 Álbumes
 
 | Método | Ruta | Descripción | Código de Éxito |
 |--------|------|-------------|-----------------|
@@ -69,7 +69,7 @@ mvn spring-boot:run
 | PUT | `/v1/album/update/{id}` | Actualiza un álbum existente | 200 |
 | DELETE | `/v1/album/delete/{id}` | Elimina un álbum | 200 |
 
-#### Ejemplo Crear Álbum
+## Ejemplo Crear Álbum
 **Endpoint:** `POST /v1/album/create`
 ```json
 
@@ -94,7 +94,7 @@ Response:
     }
 }
 ```
-### 🎴 Láminas
+## 🎴 Láminas
 
 | Método | Ruta | Descripción | Código de Éxito |
 |--------|------|-------------|-----------------|
@@ -107,7 +107,7 @@ Response:
 | GET | `/v1/laminas/repetidas` | Obtiene láminas repetidas | 200 |
 | POST | `/v1/laminas/bulk/{albumId}` | Crea múltiples láminas | 201 |
 
-#### Ejemplo Crear Lámina
+## Ejemplo Crear Lámina
 **Endpoint:** `POST /v1/laminas/create`
 ```json
 Request:
