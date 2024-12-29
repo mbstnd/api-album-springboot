@@ -105,7 +105,7 @@ Response:
 | DELETE | `/v1/laminas/delete/{id}` | Elimina una lámina | 200 |
 | GET | `/v1/laminas/faltantes` | Obtiene láminas faltantes | 200 |
 | GET | `/v1/laminas/repetidas` | Obtiene láminas repetidas | 200 |
-| POST | `/v1/laminas/bulk/{albumId}` | Crea múltiples láminas | 201 |
+
 
 ## Ejemplo Crear Lámina
 **Endpoint:** `POST /v1/laminas/create`
