@@ -20,8 +20,8 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 
 ### 🧰 Herramientas
 - [**Maven**](https://maven.apache.org/) - Gestión de dependencias
-- [**Lombok**](https://projectlombok.org/) - Reducción de código
-- [**Spring Boot DevTools**](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools)
+- [**Lombok**](https://projectlombok.org/) - Librería que automatiza la generación de código repetitivo como getters, setters, constructores, y otros métodos comunes, mejorando la legibilidad y reduciendo el boilerplate code
+- [**Spring Boot DevTools**](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools) - Herramienta para acelerar el desarrollo, permite reinicios automáticos, soporte para plantillas y mejora la productividad
 
 ### 🧪 Testing
 - [**Spring Boot Starter Test**](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing) - Suite de pruebas
