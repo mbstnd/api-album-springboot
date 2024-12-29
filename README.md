@@ -70,8 +70,9 @@ mvn spring-boot:run
 | DELETE | `/v1/album/delete/{id}` | Elimina un álbum | 200 |
 
 #### Ejemplo Crear Álbum
+**Endpoint:** `POST /v1/album/create`
 ```json
-POST /v1/album/create
+
 Request:
 {
     "nombre": "Dragon Ball Super Collection",
@@ -107,8 +108,8 @@ Response:
 | POST | `/v1/laminas/bulk/{albumId}` | Crea múltiples láminas | 201 |
 
 #### Ejemplo Crear Lámina
+**Endpoint:** `POST /v1/laminas/create`
 ```json
-POST /v1/laminas/create
 Request:
 {
     "nombre": "Goku Ultra Instinto",
