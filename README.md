@@ -17,7 +17,7 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 - [**Spring Web**](https://spring.io/guides/gs/spring-boot/) - Desarrollo de API REST
 
 ### 📚 Base de Datos
-- [**PostgreSQL**](https://www.postgresql.org/) - Base de datos relacional
+- [**MySQL**](https://www.mysql.com/) - Base de datos relacional
 - [**JPA**](https://jakarta.ee/specifications/persistence/) - Soporte para persistencia de datos con JPA
 
 ### 🧰 Herramientas
