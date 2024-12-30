@@ -37,14 +37,7 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 ### Prerrequisitos
 - Java 21
 - Maven
-- PostgreSQL
-
-### Base de Datos
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/coleccion?createDatabaseIfNotExist=true&useSSL=false
-spring.datasource.username=root
-spring.datasource.password=root
-```
+- MySQL Workbench
 
 ## Clonar repositorio
 ```
