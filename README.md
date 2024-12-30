@@ -37,7 +37,7 @@ Sistema de gestión para coleccionistas de láminas de álbumes utilizando Sprin
 ### Prerrequisitos
 - Java 21
 - Maven
-- MySQL Workbench
+- MySQL
 
 ## Clonar repositorio
 ```
