@@ -1,5 +1,7 @@
 package com.ipss.apirest.coleccion_album.Models;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -10,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -34,6 +37,14 @@ public class Lamina {
   @JoinColumn(name = "album_id", nullable = false)
   @JsonBackReference
   private Album album;
+
+  @Column(name = "fecha_creacion")
+  private LocalDateTime fechaCreacion;
+
+  @PrePersist
+  protected void onCreate() {
+    fechaCreacion = LocalDateTime.now();
+  }
 
   public Long getId() {
     return id;
