@@ -68,8 +68,8 @@ mvn spring-boot:run
 | PUT | `/v1/usuarios/update/{id}` | Actualizar usuario |
 | DELETE | `/v1/usuarios/delete/{id}` | Eliminar usuario |
 
-## Ejemplo Crear Álbum
-**Endpoint:** `POST /v1/album/create`
+## Ejemplo un Usuario
+**Endpoint:** `POST /v1/usuarios/create`
 ```json
 
 Request:
