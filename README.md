@@ -68,6 +68,32 @@ mvn spring-boot:run
 | PUT | `/v1/usuarios/update/{id}` | Actualizar usuario |
 | DELETE | `/v1/usuarios/delete/{id}` | Eliminar usuario |
 
+## Ejemplo Crear Álbum
+**Endpoint:** `POST /v1/album/create`
+```json
+
+Request:
+{
+    "firstName": "Mario",
+    "lastName": "Quevedo",
+    "email": "mario.dev@gmail.com"
+}
+
+Response:
+{
+    "status": 201,
+    "message": "Usuario creado exitosamente",
+    "data": {
+        "id": 1,
+        "firstName": "Mario",
+        "lastName": "Quevedo",
+        "email": "mario.dev@gmail.com",
+        "fechaCreacion": "2025-01-01T08:13:56.8564054",
+        "albums": []
+    }
+}
+```
+
 ## 📗 Álbumes
 
 | Método | Ruta | Descripción | Código de Éxito |
