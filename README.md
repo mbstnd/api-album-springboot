@@ -57,6 +57,17 @@ mvn spring-boot:run
 
 ## 📚 Endpoints
 
+### 👤 Usuarios
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/v1/usuarios/getAll` | Obtener todos los usuarios |
+| GET | `/v1/usuarios/getById/{id}` | Obtener usuario por ID |
+| GET | `/v1/usuarios/{userId}/albums` | Obtener álbumes de un usuario |
+| POST | `/v1/usuarios/create` | Crear nuevo usuario |
+| PUT | `/v1/usuarios/update/{id}` | Actualizar usuario |
+| DELETE | `/v1/usuarios/delete/{id}` | Eliminar usuario |
+
 ## 📗 Álbumes
 
 | Método | Ruta | Descripción | Código de Éxito |
@@ -73,22 +84,49 @@ mvn spring-boot:run
 
 Request:
 {
-    "nombre": "Dragon Ball Super Collection",
-    "imagen": "https://storage.googleapis.com/albums/dragonball.jpg",
-    "fechaLanzamiento": "2024-01-01",
-    "tipoLaminas": "METALICA"
+    "nombre": "Liga Chilena 2024",
+    "imagen": "https://storage.googleapis.com/albums/liga-chilena-2024.jpg",
+    "fechaLanzamiento": "2024-03-20",
+    "tipoLaminas": "REGULAR",
+    "usuario": {
+        "id": 1
+    },
+    "laminas": [
+        {
+            "nombre": "Arturo Vidal - Colo Colo",
+            "imagen": "vidal-colo-colo.jpg",
+            "cantidadRepetidas": 1,
+            "faltante": false
+        }
+    ]
 }
 
 Response:
 {
     "status": 201,
-    "message": "Álbum creado exitosamente",
+    "message": "Álbum creado exitosamente con 1 láminas",
     "data": {
         "id": 1,
-        "nombre": "Dragon Ball Super Collection",
-        "imagen": "https://storage.googleapis.com/albums/dragonball.jpg",
-        "fechaLanzamiento": "2024-01-01",
-        "tipoLaminas": "METALICA"
+        "nombre": "Liga Chilena 2024",
+        "imagen": "https://storage.googleapis.com/albums/liga-chilena-2024.jpg",
+        "fechaLanzamiento": "2024-03-20",
+        "tipoLaminas": "REGULAR",
+        "usuario": {
+            "id": 1,
+            "firstName": "Mario",
+            "lastName": "Quevedo",
+            "email": "mario.dev@gmail.com",
+            "fechaCreacion": "2025-01-01T08:13:56.856405"
+        },
+        "laminas": [
+            {
+                "id": 1,
+                "nombre": "Arturo Vidal - Colo Colo",
+                "imagen": "vidal-colo-colo.jpg",
+                "cantidadRepetidas": 1,
+                "faltante": false
+            }
+        ]
     }
 }
 ```
